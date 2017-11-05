@@ -1,0 +1,18 @@
+/output
+/config/settings-production.yml # don't commit prod credentials to VC
+
+# IDE files
+.idea/
+GPATH
+GRTAGS
+GTAGS
+TAGS
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

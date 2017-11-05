@@ -1,0 +1,12 @@
+# App dirs
+-/output
+
+# IDE files
+-.idea/
+
+# OS files
+-.DS_Store*
+-.Spotlight-V100
+-.Trashes
+-ehthumbs.db
+-Thumbs.db
