@@ -65,19 +65,17 @@ class PitRegex
 
   def clean_ldap_dn
 
-
-    string = string.strip # remove any surrounding whitespace
-    regex = /^\d{4}-\d{1,2}-\d{1,2}/
-
     dns = [
       "cn=desk0000,ou=ACTIVE,ou=PEOPLE,o=DATA",
-      " cn=coth0005,ou=ACTIVE,ou=PEOPLE,o=DATA "]
+      "        cn=coth0005,ou=ACTIVE,ou=PEOPLE,o=DATA "]
 
     dns.each do |dn|
 
       # dn = dn.strip
-      cn = dn[/\Scn=([^,]*)/,1]
+      # cn = dn[/\Scn=([^,]*)/,0]
+      cn = dn[/cn=([^,]*)/, 1]
       puts "#{dn} -> #{cn}"
+
     end
 
   end
@@ -86,7 +84,7 @@ class PitRegex
 
     # self.intersect
     # self.matchDate
-    self.clean_ldap_dp
+    self.clean_ldap_dn
 
   end
 

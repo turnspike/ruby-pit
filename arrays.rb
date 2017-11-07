@@ -134,6 +134,49 @@ class PitArrays
 
   end
 
+  def exact_match_or_strict_subset
+
+    reference = %w(Generic External)
+
+    puts "Reference: #{reference}"
+
+    arrays = [
+      ["Generic"],
+      ["External"],
+      ["Generic", "External"],
+      ["External", "Generic"],
+      ["Wigwam"],
+      ["Something", "Generic"],
+      ["External", "Wigwam"],
+      ["Generic", "External", "Qwijibo"],
+      nil,
+      []
+    ]
+
+    arrays.each do |array|
+
+      puts "Testing array: #{array}".light_blue
+      if array.to_a.empty?
+
+        puts "Empty array, fail".red
+        next
+
+      end
+
+      extra_roles = array - reference
+      if !extra_roles.empty?
+
+        puts "Array has extra roles not present in reference array, fail".red
+        next
+
+      end
+
+      puts "That's a match!".green
+
+    end
+
+  end
+
   def mapTest?(string)
 
     regex = /^Al/
@@ -167,7 +210,8 @@ class PitArrays
     # self.intersect
     # self.wrap
     #self.enumerate
-    self.build_unique
+    # self.build_unique
+    self.exact_match_or_strict_subset
 
   end
 
